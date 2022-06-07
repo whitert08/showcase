@@ -11,3 +11,5 @@ Was created with XAMPP for php server and mysql
 PHP Version 8.1.4, MySQL.
 
 Estimate time of work: 4h
+
+Was made for an interview.
