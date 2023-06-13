@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once('config/database.php');
+
+if(isset($_SESSION['id'],$_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE){
+	header('location: dashboard.php');
+	exit;
+}
  
 if(isset($_POST['submit']))
 {
@@ -98,7 +103,7 @@ if(isset($_POST['submit']))
 <div class="container h-100">
 	<div class="row h-100 mt-5 justify-content-center align-items-center">
 		<div class="col-md-5 mt-3 pt-2 pb-5 align-self-center border bg-light">
-			<h1 class="mx-auto w-25" >Register</h1>
+			<h1 class="d-flex justify-content-center">Register</h1>
 			<?php 
 				if(isset($errors) && count($errors) > 0)
 				{
@@ -124,8 +129,8 @@ if(isset($_POST['submit']))
 					<input type="password" name="password" placeholder="Enter Password" class="form-control" value="<?php echo ($valPassword??'')?>">
 				</div>
                 <div class="form-group">
-					<label for="email">What url you want to have:</label>
-					<input type="text" name="url_custom" placeholder="https://localhost/your-url-custom" class="form-control" value="<?php echo ($valUrlCustom??'')?>">
+					<label for="email">What url you want to have(SLUG):</label>
+					<input type="text" name="url_custom" placeholder="https://localhost/slug" class="form-control" value="<?php echo ($valUrlCustom??'')?>">
 				</div>
  
 				<button type="submit" name="submit" class="btn btn-primary">Submit</button>

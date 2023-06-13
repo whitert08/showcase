@@ -4,7 +4,7 @@ $dbusername = "root";
 $dbpassword = "";
 
 try {
-  $conn = new PDO("mysql:host=$dbservername;dbname=interview", $dbusername, $dbpassword);
+  $conn = new PDO("mysql:host=$dbservername;dbname=master", $dbusername, $dbpassword);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   //echo "Connected successfully";

@@ -1,9 +1,10 @@
 <?php 
     session_start();
-    if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE){
-        header('location:index.php');
+
+	if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != TRUE){
+		header('location:index.php');
 		exit;
-    }
+	}
 ?>
 <!doctype html>
 <html>

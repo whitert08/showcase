@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+  <link href="styles/style.css" rel="stylesheet" type="text/css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,15 +26,14 @@
 <div class="container-fluid">
   <div class="px-lg-5">
 
-    <!-- For demo purpose -->
     <div class="row py-5">
-      <div class="col-lg-12 mx-auto">
+      <div class="col-lg-12 mx-auto position-relative">
         <div class="text-white p-5 shadow-sm rounded banner">
           <h1 class="display-4" style="text-align: center;">SHOWCASE</h1>
         </div>
+        <?php if(!empty($_SESSION) && $_SESSION['loggedin'] == TRUE) {?><a href="dashboard.php"><button type="button" class="btn btn-danger position-absolute top-0 button-back-dashboard">Back home</button></a><?php } ?>
       </div>
     </div>
-    <!-- End -->
 
     <div class="row">
       <!-- Gallery item -->
@@ -59,7 +59,7 @@
             <h5> <a href="<?= $getRow_select_objects['customer_url'] ?>" class="text-dark"><?= $getRow_select_objects['title'] ?></a></h5>
             <p class="small text-muted mb-0"><?= $getRow_select_objects['description'] ?></p>
             <div class="d-flex align-items-center justify-content-between rounded-pill bg-light py-2 mt-4">
-                <a href="<?= $getRow_select_objects['customer_url'] ?>"><button type="button" class="btn btn-info">Customer's URL</button></a>
+                <a href="<?= $getRow_select_objects['customer_url'] ?>" target="_blank"><button type="button" class="btn btn-info text-white customer-button text-uppercase">Customer's URL</button></a>
             </div>
           </div>
         </div>

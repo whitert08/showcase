@@ -109,7 +109,7 @@ body.loggedin {
 	color: #4a536e;
 }
 .content > p, .content > div {
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 	margin: 25px 0;
 	padding: 25px;
 	background-color: #fff;
@@ -140,4 +140,14 @@ body.loggedin {
 .register-button:hover {
 	background-color: #2868c7;
   	transition: background-color 0.2s;
+}
+
+.button-back-dashboard {
+	margin-top: 10px;
+	right: 35px;
+}
+
+.customer-button {
+	font-weight: 500 !important;
+	font-size: 20px !important;
 }

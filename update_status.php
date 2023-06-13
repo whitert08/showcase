@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('config/database.php');
-if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE){
+if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != TRUE){
     header('location:index.php');
     exit;
 }

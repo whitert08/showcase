@@ -1,8 +1,9 @@
 <?php 
     session_start();
 	require('config/database.php');
+
   
-    if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE){
+    if(!$_SESSION['id'] && !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != TRUE){
         header('location:index.php');
 		exit;
     }
@@ -33,8 +34,8 @@
 			<p>Welcome back, <?=strtoupper($_SESSION['url_page'])?>!</p>
 		</div>
 		
-		<div class="container" style="text-align: right;">
-			<a href="create_showcase.php"><button type="button" class="btn btn-primary btn-lg float-right" style="margin-right: 60px;">NEW SHOWCASE</button></a>
+		<div class="content d-flex justify-content-end">
+			<a href="create_showcase.php"><button type="button" class="btn btn-primary btn-lg float-right">NEW SHOWCASE</button></a>
 		</div>
 		</br>
 
@@ -65,7 +66,7 @@
 			?>
 			    <tr>
 			    	<th scope="row"><?= $row_number ?></th>
-			    	<td><a href="<?= $_SESSION["url_page"]?>"><?= $getRow["title"]?></a></td>
+			    	<td><a href="<?= $_SESSION["url_page"]?>" target="_blank"><?= $getRow["title"]?></a></td>
 			    	<td><?= $getRow["description"]?></td>
 			    	<td><?= $getRow["customer_url"]?></td>
 					<td><?php if($getRow["active"] == 1)
@@ -81,7 +82,11 @@
 					<td>
 						<a href="edit_link.php?link_id=<?= $getRow["link_id"]?>"><i id="edit_link" class="fas fa-pen-to-square" value="<?= $getRow["link_id"]?>"></i></a>
 						<button id="delete_link" type='button' name="delete_link" style="border:none;background:none;color:red;" value="<?= $getRow["link_id"]?>"><i class="fas fa-x" value="<?= $getRow["link_id"]?>"></i></button>
-						<button id="show_unshow" type='button' name="show_unshow" style="border:none;background:none;color:white;" value="<?= $getRow["link_id"]?>"><i class="fa-solid fa-eye-slash"></i></button>
+						<?php if($getRow["active"] == 1) { ?>
+						<button id="show_unshow" type='button' name="show_unshow" style="border:none;background:none;color:green;" value="<?= $getRow["link_id"]?>"><i class="fa-solid fa-eye-slash"></i></button>
+						<?php } else { ?>
+						<button id="show_unshow" type='button' name="show_unshow" style="border:none;background:none;color:red;" value="<?= $getRow["link_id"]?>"><i class="fa-solid fa-eye-slash"></i></button>
+						<?php } ?>
 					</td>
 			    </tr>
 			<?php } } ?>
